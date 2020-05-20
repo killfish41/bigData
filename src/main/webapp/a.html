@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<body>
+<script>
+    function submit(){
+        var name = document.getElementById("aaa");
+        var password = document.getElementById("bbb");
+        $.ajax({
+            url: "servlet", //提价的路径
+            type: "get",       //提交方式
+            data: {
+                "name" :name.value,
+                "password" : password.value
+            },
+            dataType: "JSON",       //规定请求成功后返回的数据
+            success: function (data) {
+                //请求成功之后进入该方法，data为成功后返回的数据
+                alert("success")
+            },
+            error: function (errorMsg) {
+                //请求失败之后进入该方法，errorMsg为失败后返回的错误信息
+                alert("fail")
+            }
+        });
+    }
+</script>
+UserName: <input type="url" name="user_url" id="aaa"/><br />
+PassWord: <input type="url" name="user_url" id="bbb"/><br />
+<input type="submit" onclick="submit()"/>
+
+</body>
+</html>
